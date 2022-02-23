@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import styles from '../styles/products.module.css';
 
 const Cart = ({ cartItems }) => {
+  let sum = 0;
+
   return (
     <main style={styles.main}>
       {
@@ -14,9 +16,11 @@ const Cart = ({ cartItems }) => {
             <h2 className='itemTitle'>{item.title}</h2>
             <p className='itemPrice'>{item.qty} x {item.price}:-</p>
             <button className='removeBtn' onClick={() => console.log(item)}>Remove</button>
-          </div>
-        ))
+            {sum += item.price * item.qty}
+            </div>
+            ))
       }
+      <p>Total sum: {sum}</p>
       <h1>Your shopping cart is empty</h1>
       <button>Empty shopping bag</button>
     </main>
