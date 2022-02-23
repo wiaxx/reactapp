@@ -1,8 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Header() {
+const Header = () => {
   return (
-    <div>Header</div>
+    <nav>
+      <Link to='/'>Products</Link>
+      <Link to='/cart'>Cart</Link>
+    </nav>
   )
 }
 
