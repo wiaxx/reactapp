@@ -22,6 +22,15 @@ function App() {
     ])
   }
 
+  const removeItem = (id) => {
+    const updatedCart = cartItems.filter(item => item.id !== id);
+    setCartItems(updatedCart);
+  }
+
+  const resetCart = () => {
+    setCartItems([]);
+  }
+
   console.log("shopping cart", cartItems)
 
   return (
@@ -29,7 +38,7 @@ function App() {
       <Header cartItems={cartItems} />
       <Routes>
         <Route path='/' element={<Products addCartItem={addCartItem} />} />
-        <Route path='/cart' element={<Cart cartItems={cartItems} />} />
+        <Route path='/cart' element={<Cart cartItems={cartItems} removeItem={removeItem} resetCart={resetCart} />} />
         <Route path='/product/:id' element={<Product />} />
       </Routes>
     </>
