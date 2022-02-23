@@ -5,3 +5,7 @@ main {
     flex-wrap: wrap;
     background-color: darkslategray;
 }
+
+.qtyBox {
+    display: flex;
+}

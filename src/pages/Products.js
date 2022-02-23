@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from '../styles/products.module.css';
 import ProductCard from '../components/ProductCard';
 
-const Products = () => {
+const Products = ({ addCartItem }) => {
   const [products, setProducts] = useState([]);
 
   const fetchData = async () => {
@@ -22,7 +22,9 @@ const Products = () => {
   return (
     <main style={styles.main}>
       {
-        products.map(product => (<ProductCard key={product.id} product={product} />))
+        products.map(product => (
+          <ProductCard key={product.id} product={product} addCartItem={addCartItem} />
+        ))
       }
     </main >
   )

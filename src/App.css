@@ -11,7 +11,12 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+}
+
+.itemCard > a {
+    align-self: center;
+    justify-self: flex-start;
 }
 
 .itemTitle, .itemPrice {
@@ -49,4 +54,12 @@ nav > a {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.addBtn, .addQty {
+    border: none;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    width: 45%;
+    margin: 3px;
 }
