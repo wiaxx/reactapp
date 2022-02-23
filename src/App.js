@@ -9,18 +9,24 @@ import Product from './pages/Product';
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
-  const addCartItem = (item) => {
+  const addCartItem = (cartItem) => {
+    // const uppdatedQty = 
+    cartItems.map(item => (
+      item.id === cartItem.id
+        ? item.qty += cartItem.qty
+        : item
+    ))
     setCartItems([
       ...cartItems,
-      item
+      cartItem
     ])
   }
 
-  console.log(cartItems)
+  console.log("shopping cart", cartItems)
 
   return (
     <>
-      <Header />
+      <Header cartItems={cartItems} />
       <Routes>
         <Route path='/' element={<Products addCartItem={addCartItem} />} />
         <Route path='/cart' element={<Cart cartItems={cartItems} />} />
