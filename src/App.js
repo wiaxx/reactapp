@@ -10,8 +10,8 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const addCartItem = (cartItem) => {
-    // const uppdatedQty = 
-    cartItems.map(item => (
+    
+    const uppdatedQty = cartItems.map(item => (
       item.id === cartItem.id
         ? item.qty += cartItem.qty
         : item
@@ -20,7 +20,9 @@ function App() {
       ...cartItems,
       cartItem
     ])
+    console.log(uppdatedQty)
   }
+  console.log("shopping cart", cartItems)
 
   const removeItem = (id) => {
     const updatedCart = cartItems.filter(item => item.id !== id);
@@ -30,8 +32,6 @@ function App() {
   const resetCart = () => {
     setCartItems([]);
   }
-
-  console.log("shopping cart", cartItems)
 
   return (
     <>

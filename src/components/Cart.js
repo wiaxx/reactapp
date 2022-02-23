@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from '../styles/products.module.css';
 
 const Cart = ({ cartItems, resetCart, removeItem }) => {
   let sum = 0;
 
   return (
-    <main style={styles.main}>
+    <main className='cartDiv'>
       {
-        cartItems.map(item => (
+        cartItems.length > 0
+        ? cartItems.map(item => (
           <div className='itemCard' key={item.id}>
             <Link to={`/product/${item.id}`}>
               <img src={item.url} alt={item.title} width='200' />
@@ -19,9 +19,12 @@ const Cart = ({ cartItems, resetCart, removeItem }) => {
             {sum += item.price * item.qty}
             </div>
             ))
+            : <>
+            <h1>Your shopping cart is empty</h1> 
+            <Link to='/'><button>Go to products</button></Link>
+            </>
       }
       <p>Total sum: {sum}</p>
-      <h1>Your shopping cart is empty</h1>
       <button onClick={resetCart}>Empty shopping bag</button>
       <Link to='/checkout'><button>Go to checkout</button></Link>
     </main>
