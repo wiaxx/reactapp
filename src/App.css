@@ -21,14 +21,14 @@
 nav {
     width: 100vw;
     height: 10vh;
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid rgb(107, 107, 107);
     display: flex;
     justify-content: space-between;
     padding: 10px;
     padding-left: 20px;
     padding-right: 20px;
     align-items: center;
-    background-color: darkslategray;
+    background-color: rgb(31, 56, 56);
 }
 
 nav > a {
@@ -36,5 +36,17 @@ nav > a {
     text-decoration: none;
     text-transform: uppercase;
     color: white;
-    
+    text-align: center;
+}
+
+.cartIcon {
+    height: 2rem;
+    width: 2rem;
+    margin: 5px;
+}
+
+.iconLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
