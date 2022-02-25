@@ -47,7 +47,11 @@ function App() {
 				<Route path="/product/:id" element={<Product />} />
 				<Route
 					path="/checkout"
-					element={<Checkout cartItems={cartItems} removeItem={removeItem} />}
+					element={<Checkout 
+                      cartItems={cartItems} 
+                      removeItem={removeItem} 
+                      
+                      />}
 				/>
 			</Routes>
 		</>

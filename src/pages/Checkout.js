@@ -1,9 +1,9 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "../styles/products.module.css";
+import Cart from "../components/Cart";
 
-const Checkout = ({ cartItems, resetCart, removeItem }) => {
+const Checkout = ({ cartItems, resetCart, removeItem, }) => {
 	let sum = 0;
 
 	return (
@@ -61,44 +61,15 @@ const Checkout = ({ cartItems, resetCart, removeItem }) => {
 			<div>
 				{/*Total container div for items card*/}
 
-				<table>
-					<head>
-						<tr>
-							<main style={styles.main}>
-								{cartItems.map((item) => (
-									<div className="itemCard" key={item.id}>
-										<Link to={`/product/${item.id}`}>
-											<img src={item.url} alt={item.title} width="200" />
-										</Link>
-										<h2 className="itemTitle">{item.title}</h2>
-										<p className="itemPrice">
-											{item.qty} x {item.price}:-
-										</p>
-										<button
-											className="removeBtn"
-											onClick={() => removeItem(item.id)}
-										>
-											Remove
-										</button>
-										{(sum += item.price * item.qty)}
-									</div>
-								))}
-							</main>
-
-							<th>Product</th>
-							<th>Price</th>
-							<th>Quantity {} </th>
-							<th>Total sum: {sum}</th>
-						</tr>
-					</head>
-					<tbody>
-						<tr>
-							<td>200</td>
-							<td>2</td>
-							<td>400</td>
-						</tr>
-					</tbody>
-				</table>
+				{cartItems.map((item) => (
+					<>
+						<p>Product {item.title}</p>
+						<p>Price {item.price}</p>
+						<p>Quantity {item.qty} </p>
+						{(sum += item.price * item.qty)}
+					</>
+				))}
+				<p>Total sum: {sum}</p>
 			</div>
 		</div>
 	);
