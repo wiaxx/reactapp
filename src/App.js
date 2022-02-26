@@ -12,18 +12,19 @@ function App() {
 
   const addCartItem = (cartItem) => {
 
-    const uppdatedQty = cartItems.map(item => (
-      item.id === cartItem.id
-        ? item.qty += cartItem.qty
-        : item
-    ))
-    setCartItems([
-      ...cartItems,
-      cartItem
-    ])
-    console.log(uppdatedQty)
+    const itemExist = cartItems.filter(item => item.id === cartItem.id)
+
+    itemExist.length > 0
+      ? cartItems.map(item => (
+        item.id === cartItem.id
+          ? item.qty += cartItem.qty
+          : item
+      )) :
+      setCartItems([
+        ...cartItems,
+        cartItem
+      ])
   }
-  console.log("shopping cart", cartItems)
 
   const removeItem = (id) => {
     const updatedCart = cartItems.filter(item => item.id !== id);
