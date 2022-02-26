@@ -21,7 +21,7 @@ const Cart = ({ cartItems, resetCart, removeItem }) => {
             ))
             : <>
             <h1>Your shopping cart is empty</h1> 
-            <Link to='/'><button>Go to products</button></Link>
+            <Link to='/products'><button>Go to products</button></Link>
             </>
       }
       <p>Total sum: {sum}</p>

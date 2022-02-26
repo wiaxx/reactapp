@@ -2,68 +2,6 @@
     box-sizing: border-box;
 }
 
-.itemCard {
-    width: 30%;
-    margin: 10px;
-    border: 0.5px solid rgb(54, 97, 97);
-    border-radius: 10px;
-    box-shadow: 0.5px 0.5px 0.5px rgb(38, 71, 71);
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.itemCard > a {
-    align-self: center;
-    justify-self: flex-start;
-}
-
-.itemTitle, .itemPrice {
-    color: rgb(248, 234, 234);
-}
-
-nav {
-    width: 100vw;
-    height: 10vh;
-    border-bottom: 1px solid rgb(107, 107, 107);
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    align-items: center;
-    background-color: rgb(31, 56, 56);
-}
-
-nav > a {
-    font-size: 1.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    color: white;
-    text-align: center;
-}
-
-.cartIcon {
-    height: 2rem;
-    width: 2rem;
-    margin: 5px;
-}
-
-.iconLink {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.addBtn, .addQty {
-    border: none;
-    font-size: 1.4rem;
-    border-radius: 10px;
-    width: 45%;
-    margin: 3px;
-}
-
 .cartDiv {
     width: 100vw;
     min-height: 70vh;

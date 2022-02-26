@@ -5,12 +5,13 @@ import Header from './components/Header';
 import Cart from './components/Cart';
 import Products from './pages/Products';
 import Product from './pages/Product';
+import Home from './pages/Home';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const addCartItem = (cartItem) => {
-    
+
     const uppdatedQty = cartItems.map(item => (
       item.id === cartItem.id
         ? item.qty += cartItem.qty
@@ -37,7 +38,8 @@ function App() {
     <>
       <Header cartItems={cartItems} />
       <Routes>
-        <Route path='/' element={<Products addCartItem={addCartItem} />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/products' element={<Products addCartItem={addCartItem} />} />
         <Route path='/cart' element={<Cart cartItems={cartItems} removeItem={removeItem} resetCart={resetCart} />} />
         <Route path='/product/:id' element={<Product />} />
       </Routes>
