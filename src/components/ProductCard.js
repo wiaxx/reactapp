@@ -62,10 +62,10 @@ const ChangeQty = styled.input`
 const ProductCard = ({ product, addCartItem }) => {
     const [qty, setQty] = useState(1);
 
-    const addItem = (e) => {
+    const addItem = () => {
         const quantityOfItem = {
             ...product,
-            qty: qty
+            qty: Number(qty)
         }
         addCartItem(quantityOfItem)
     }

@@ -13,14 +13,20 @@ import Footer from "./components/Footer";
 function App() {
 	const [cartItems, setCartItems] = useState([]);
 
-	const addCartItem = (cartItem) => {
-		const uppdatedQty = cartItems.map((item) =>
-			item.id === cartItem.id ? (item.qty += cartItem.qty) : item
-		);
-		setCartItems([...cartItems, cartItem]);
-		console.log(uppdatedQty);
-	};
-	console.log("shopping cart", cartItems);
+    const itemExist = cartItems.filter(item => item.id === cartItem.id)
+	
+
+    itemExist.length > 0
+      ? cartItems.map(item => (
+        item.id === cartItem.id
+          ? item.qty += cartItem.qty
+          : item
+      )) :
+      setCartItems([
+        ...cartItems,
+        cartItem
+      ])
+  }
 
 	const removeItem = (id) => {
 		const updatedCart = cartItems.filter((item) => item.id !== id);
@@ -32,6 +38,7 @@ function App() {
 	};
 
 	return (
+		
 		<>
 			<Header cartItems={cartItems} />
 			<Routes>
