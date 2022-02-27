@@ -1,9 +1,7 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Cart from "../components/Cart";
 
-const Checkout = ({ cartItems, resetCart, removeItem, }) => {
+const Checkout = ({ cartItems, resetCart, removeItem }) => {
 	let sum = 0;
 
 	return (
@@ -61,15 +59,32 @@ const Checkout = ({ cartItems, resetCart, removeItem, }) => {
 			<div>
 				{/*Total container div for items card*/}
 
-				{cartItems.map((item) => (
+				{cartItems.length > 0 ? (
+					cartItems.map((item) => (
+						<div className="itemCard" key={item.id}>
+							<Link to={`/product/${item.id}`}>
+								<img src={item.url} alt={item.title} width="50" />
+							</Link>
+							<h2 className="itemTitle">{item.title}</h2>
+							<p className="itemPrice">
+								{item.qty} x {item.price}:-
+							</p>
+							<button className="removeBtn" onClick={() => removeItem(item.id)}>
+								Remove
+							</button>
+							{(sum += item.price * item.qty)}
+						</div>
+					))
+				) : (
 					<>
-						<p>Product {item.title}</p>
-						<p>Price {item.price}</p>
-						<p>Quantity {item.qty} </p>
-						{(sum += item.price * item.qty)}
+						<h1>Your shopping cart is empty</h1>
+						<Link to="/products">
+							<button>Go to products</button>
+						</Link>
 					</>
-				))}
+				)}
 				<p>Total sum: {sum}</p>
+				<button onClick={resetCart}>Empty shopping bag</button>
 			</div>
 		</div>
 	);

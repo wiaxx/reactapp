@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import styles from '../styles/products.module.css';
 import ProductCard from '../components/ProductCard';
+import styled from 'styled-components';
+
+
+const MainContainer = styled.div`
+    width: 100vw;
+    min-height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: darkslategray;
+    overflow: scroll;
+    padding: 10px;
+`;
 
 const Products = ({ addCartItem }) => {
   const [products, setProducts] = useState([]);
@@ -20,13 +31,14 @@ const Products = ({ addCartItem }) => {
   }, []);
 
   return (
-    <main style={styles.main}>
+    <MainContainer>
       {
         products.map(product => (
           <ProductCard key={product.id} product={product} addCartItem={addCartItem} />
         ))
+       
       }
-    </main >
+    </MainContainer >
   )
 }
 
