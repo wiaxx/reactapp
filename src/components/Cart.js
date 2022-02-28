@@ -2,32 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { FiTrash2 } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 const ModalDiv = styled.div`
   position: fixed;
-  // width: 40vw;
-  // min-height: 400px;
-  bottom: 0;
   left: 0;
-  // top: 85px;
   top: 0;
-  right: 0;
-  border-radius: 10px;
-  box-shadow: 1px 1px grey;
-  display: flex;
-  justify-content: flex-end;
-
-  // width: 100vw;
-  // min-height: 70vh;
-  // display: flex;
-  // flex-wrap: wrap;
-  // flex-direction: column;
-  // background-color: darkslategray;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
+  z-index: 1;
 `;
 
 const ModalContent = styled.div`
-    width: 40vw;
+    width: 35vw;
     margin-top: 85px;
+    margin-left: auto;
+    margin-right: 12px;
     min-height: 200px;
     display: flex;
     flex-direction: column;
@@ -41,18 +32,18 @@ const ItemCard = styled.div`
     justify-content: space-between;
 `;
 
-const CartBtn = styled.button`
-    border: none;
-    background-color: rgb(47, 49, 49);
-    color: white;
-    font-size: 1.4rem;
-    &:hover,
-    &:focus {
-      background-color: white;
-      color: black;
-      border: 0.5px solid black;
-    }
-`;
+// const CartBtn = styled.button`
+//     border: none;
+//     background-color: rgb(47, 49, 49);
+//     color: white;
+//     font-size: 1.4rem;
+//     &:hover,
+//     &:focus {
+//       background-color: white;
+//       color: black;
+//       border: 0.5px solid black;
+//     }
+// `;
 
 const Cart = ({ cartItems, resetCart, removeItem, showCart, setShowCart }) => {
   if (!showCart) {
@@ -65,7 +56,12 @@ const Cart = ({ cartItems, resetCart, removeItem, showCart, setShowCart }) => {
   }
 
   return (
-    <ModalDiv onClick={() => setShowCart(false)}>
+    <ModalDiv
+      as={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      onClick={() => setShowCart(false)}>
       <ModalContent>
         {
           cartItems.length > 0

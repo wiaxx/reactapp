@@ -23,8 +23,7 @@ const Home = () => {
         const intervalId = setInterval(() => {
             if (currentIndex === images.length - 1) {
                 setCurrentIndex(0);
-            }
-            else {
+            } else {
                 setCurrentIndex(currentIndex + 1);
             }
         }, 9000)

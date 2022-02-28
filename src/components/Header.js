@@ -4,6 +4,7 @@ import { FiShoppingBag } from 'react-icons/fi';
 import styled from 'styled-components';
 import styles from '../styles/header.module.css';
 import Cart from './Cart';
+import { motion } from "framer-motion";
 
 const Navbar = styled.nav`
     width: 100vw;
@@ -50,7 +51,12 @@ const Header = ({ cartItems, removeItem, resetCart }) => {
     <Navbar>
       <NavLink to='/'>Home</NavLink>
       <ProductsLink to='/products'>Products</ProductsLink>
-      <CartBtn onClick={() => setShowCart(!showCart)}>
+      <CartBtn
+        as={motion.button}
+        whileHover={{
+          scale: 1.2,
+        }}
+        onClick={() => setShowCart(!showCart)}>
         <FiShoppingBag className={styles.cartIcon} />{cartItems.length}</CartBtn>
       <Cart setShowCart={setShowCart} showCart={showCart} cartItems={cartItems} removeItem={removeItem} resetCart={resetCart} />
     </Navbar>
