@@ -22,7 +22,12 @@ const Cart = ({ cartItems, resetCart, removeItem, showCart, setShowCart }) => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
       onClick={() => setShowCart(false)}>
-      <ModalContent>
+      <ModalContent
+        as={motion.div}
+        initial={{ x: '600px' }}
+        animate={{ x: 0 }}
+        transition={{ ease: 'easeIn', duration: 1.5 }}
+      >
         {
           cartItems.map(item => (
             <ItemCard key={item.id}>
