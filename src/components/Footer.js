@@ -12,7 +12,7 @@ const Footer = () => {
 	return (
 		<Box>
 			<h1 style={{ color: "green", textAlign: "center", marginTop: "-50px" }}>
-				Amanadas Garageförsäljning{" "}
+				Garageförsäljning{" "}
 			</h1>
 			<Container>
 				<Row>

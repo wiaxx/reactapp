@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 const Product = ({ addCartItem }) => {
 	const [product, setProduct] = useState({});
 	const params = useParams();
+	console.log(params)
 
 	const fetchData = async () => {
 		try {

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import styled from 'styled-components';
 
-
 const MainContainer = styled.div`
     width: 100vw;
     min-height: 70vh;
