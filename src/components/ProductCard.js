@@ -3,14 +3,43 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import styles from '../styles/products.module.css';
 
+const ProductCard = ({ product, addCartItem }) => {
+    const [qty, setQty] = useState(1);
+
+    const addItem = () => {
+        const quantityOfItem = {
+            ...product,
+            qty: Number(qty)
+        }
+        addCartItem(quantityOfItem)
+    }
+
+    return (
+        <ItemCard>
+            <Link to={`/product/${product.id}`} className={styles.productLink}>
+                <img src={product.url} alt={product.title} className={styles.productImg} />
+            </Link>
+            <TextDiv>
+                <Text className='itemTitle'>{product.title}</Text>
+                <Text className='itemPrice'>{product.price} SEK</Text>
+            </TextDiv>
+            <QuantityDiv>
+                <ChangeQty
+                    type='number'
+                    placeholder='1'
+                    value={qty}
+                    onChange={(e) => setQty(e.target.value)}
+                    className='addQty'
+                />
+                <AddButton onClick={addItem}>Add to cart</AddButton>
+            </QuantityDiv>
+        </ItemCard>)
+}
+
 const ItemCard = styled.div`
     width: 33%;
-    height: 500px;
     margin: 2px;
-    // border: 0.5px solid rgb(54, 97, 97);
-    // border-radius: 10px;
     box-shadow: 0.5px 0.5px 0.5px rgb(38, 71, 71);
-    // padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -58,38 +87,5 @@ const ChangeQty = styled.input`
     font-size: 1.4rem;
     width: 70px;
 `;
-
-const ProductCard = ({ product, addCartItem }) => {
-    const [qty, setQty] = useState(1);
-
-    const addItem = () => {
-        const quantityOfItem = {
-            ...product,
-            qty: Number(qty)
-        }
-        addCartItem(quantityOfItem)
-    }
-
-    return (
-        <ItemCard>
-            <Link to={`/product/${product.id}`} className={styles.productLink}>
-                <img src={product.url} alt={product.title} className={styles.productImg} />
-            </Link>
-            <TextDiv>
-                <Text className='itemTitle'>{product.title}</Text>
-                <Text className='itemPrice'>{product.price} SEK</Text>
-            </TextDiv>
-            <QuantityDiv>
-                <ChangeQty
-                    type='number'
-                    placeholder='1'
-                    value={qty}
-                    onChange={(e) => setQty(e.target.value)}
-                    className='addQty'
-                />
-                <AddButton onClick={addItem}>Add to cart</AddButton>
-            </QuantityDiv>
-        </ItemCard>)
-}
 
 export default ProductCard;

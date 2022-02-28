@@ -2,10 +2,15 @@
 .productLink {
     align-self: center;
     width: 100%;
-    height: 100%;
 }
 
 .productImg {
     width: 100%;
     height: 380px;
+}
+
+.removeIcon {
+    height: 2rem;
+    width: 2rem;
+    margin: 5px;
 }
