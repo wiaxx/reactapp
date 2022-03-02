@@ -6,6 +6,25 @@ import styles from '../styles/header.module.css';
 import Cart from './Cart';
 import { motion } from "framer-motion";
 
+const Header = ({ cartItems, removeItem, resetCart }) => {
+  const [showCart, setShowCart] = useState(false)
+
+  return (
+    <Navbar>
+      <NavLink to='/'>Home</NavLink>
+      <ProductsLink to='/products'>Products</ProductsLink>
+      <CartBtn
+        as={motion.button}
+        whileHover={{
+          scale: 1.2,
+        }}
+        onClick={() => setShowCart(!showCart)}>
+        <FiShoppingBag className={styles.cartIcon} />{cartItems.length}</CartBtn>
+      <Cart setShowCart={setShowCart} showCart={showCart} cartItems={cartItems} removeItem={removeItem} resetCart={resetCart} />
+    </Navbar>
+  )
+}
+
 const Navbar = styled.nav`
     width: 100vw;
     height: 100px;
@@ -43,24 +62,5 @@ const CartBtn = styled.button`
     background-color: rgb(31, 56, 56);
 
 `;
-
-const Header = ({ cartItems, removeItem, resetCart }) => {
-  const [showCart, setShowCart] = useState(false)
-
-  return (
-    <Navbar>
-      <NavLink to='/'>Home</NavLink>
-      <ProductsLink to='/products'>Products</ProductsLink>
-      <CartBtn
-        as={motion.button}
-        whileHover={{
-          scale: 1.2,
-        }}
-        onClick={() => setShowCart(!showCart)}>
-        <FiShoppingBag className={styles.cartIcon} />{cartItems.length}</CartBtn>
-      <Cart setShowCart={setShowCart} showCart={showCart} cartItems={cartItems} removeItem={removeItem} resetCart={resetCart} />
-    </Navbar>
-  )
-}
 
 export default Header;

@@ -62,6 +62,7 @@ const ModalDiv = styled.div`
   height: 100%;
   background-color: rgba(0,0,0,0.2);
   z-index: 1;
+  overflow: scroll;
 `;
 
 const ModalContent = styled.div`
