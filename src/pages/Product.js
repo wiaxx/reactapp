@@ -9,7 +9,7 @@ const Product = ({ addCartItem }) => {
 	const fetchData = async () => {
 		try {
 			const response = await fetch(
-				"https://codexplained.se/electronics.php" + params.id
+				"https://codexplained.se/electronics.php?id=" + params.id
 			);
 			const data = await response.json();
 			console.log(data);
@@ -22,13 +22,16 @@ const Product = ({ addCartItem }) => {
 
 	useEffect(() => {
 		fetchData();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
 		<div>
-			<h1>Test id: {params.title} </h1>
+			<h1>{product.title} </h1>
 			<img src={product.url} alt={product.title} width="200" />
 			<p>{product.description}</p>
+			<h5>Stock: {product.storage} </h5>
+			<p>Pris: {product.price} </p>
 		</div>
 	);
 };
