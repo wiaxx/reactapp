@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import styles from '../styles/products.module.css';
+import { motion } from 'framer-motion';
 
 const ProductCard = ({ product, addCartItem }) => {
     const [qty, setQty] = useState(1);
@@ -15,7 +16,12 @@ const ProductCard = ({ product, addCartItem }) => {
     }
 
     return (
-        <ItemCard>
+        <ItemCard
+            as={motion.div}
+            whileHover={{
+                scale: 1.01,
+            }}
+        >
             <Link to={`/product/${product.id}`} className={styles.productLink}>
                 <img src={product.url} alt={product.title} className={styles.productImg} />
             </Link>
