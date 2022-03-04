@@ -7,6 +7,7 @@ import Product from "./pages/Product";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
 import Footer from "./components/Footer";
+import CheckoutModal from "./components/CheckoutModal";
 
 function App() {
 	const [cartItems, setCartItems] = useState([]);
@@ -54,6 +55,7 @@ function App() {
 							cartItems={cartItems}
 							removeItem={removeItem}
 							resetCart={resetCart}
+							CheckoutModal={<CheckoutModal />}
 						/>
 					}
 				/>

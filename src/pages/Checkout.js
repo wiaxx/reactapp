@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { CheckoutModal } from "../components/CheckoutModal";
-import styled from "styled-components";
-
+import CheckoutModal from "../components/CheckoutModal";
 
 const Checkout = ({ cartItems, resetCart, removeItem }) => {
 	let sum = 0;
@@ -10,18 +8,6 @@ const Checkout = ({ cartItems, resetCart, removeItem }) => {
 	const openModal = () => {
 		setShowModal((prev) => !prev);
 	};
-
-	const Container = styled.div`
-	position: fixed;
-	left: 0;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.5);
-	display: flex;
-	align-items: center;
-	justify-content: center;`
-
 
 	return (
 		<div>
@@ -102,11 +88,9 @@ const Checkout = ({ cartItems, resetCart, removeItem }) => {
 				<p>Total sum: {sum}</p>
 				<button onClick={resetCart}>Empty shopping bag</button>
 			</div>
+			<button onClick={openModal}>Place Order</button>
 
-			<Container>
-				<button onClick={openModal}>Place Order</button>
-				<CheckoutModal showModal={showModal} setShowModal={setShowModal} />
-			</Container>
+			<CheckoutModal showModal={showModal} setShowModal={setShowModal} />
 		</div>
 	);
 };
