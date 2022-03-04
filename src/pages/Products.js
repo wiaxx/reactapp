@@ -37,7 +37,7 @@ const Products = ({ addCartItem }) => {
         ))
        
       }
-    </MainContainer >
+      </MainContainer >
   )
 }
 
