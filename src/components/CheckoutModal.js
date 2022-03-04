@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const CheckoutModal = ({ showModal, setShowModal }) => {
+const CheckoutModal = ({ showModal, setShowModal, resetCart }) => {
 	return (
 		<>
 			{showModal ? (
@@ -18,14 +18,13 @@ const CheckoutModal = ({ showModal, setShowModal }) => {
 							<p>Thank you for your order</p>
 
 							<h3>Your ordernumber is:{Math.floor(Math.random() * 9999)}</h3>
-						
 
 							<p>Closing this window will redirect you to the homepage</p>
 						</CheckoutModalBody>
 
 						<CheckoutModalFooter>
 							<Link to={`/`}>
-								<button> Close</button>
+								<button resetCart={resetCart}> Close</button>
 							</Link>
 						</CheckoutModalFooter>
 					</CheckoutModalContent>
@@ -37,6 +36,7 @@ const CheckoutModal = ({ showModal, setShowModal }) => {
 
 const Container = styled.div`
 	position: fixed;
+	z-index: 1;
 	left: 0;
 	top: 0;
 	right: 0;

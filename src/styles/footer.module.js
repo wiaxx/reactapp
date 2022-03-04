@@ -7,12 +7,9 @@ export const Box = styled.div`
 	background: black;
 	position: relative;
 	bottom: 0;
+	min-height: 50vh;
 	width: auto;
-	z-indext: 1;
-
-	@media (max-width: 1000px) {
-		padding: 70px 30px;
-	}
+	z-indext: 0.1;
 `;
 
 export const Container = styled.div`
@@ -21,7 +18,6 @@ export const Container = styled.div`
 	justify-content: center;
 	max-width: 1000px;
 	margin: 0 auto;
-	/* background: red; */
 `;
 
 export const Column = styled.div`

@@ -55,7 +55,7 @@ function App() {
 							cartItems={cartItems}
 							removeItem={removeItem}
 							resetCart={resetCart}
-							CheckoutModal={<CheckoutModal />}
+							CheckoutModal={<CheckoutModal resetCart={resetCart} />}
 						/>
 					}
 				/>
