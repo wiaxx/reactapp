@@ -11,7 +11,14 @@ import {
 const Footer = () => {
 	return (
 		<Box>
-			<h1 style={{ color: "green", textAlign: "center", marginTop: "-50px" }}>
+			<h1
+				style={{
+					color: "green",
+					textAlign: "center",
+					marginTop: "-50px",
+					zIndex: 1,
+				}}
+			>
 				Garageförsäljning{" "}
 			</h1>
 			<Container>

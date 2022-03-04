@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
+/*footer styling */
+
 export const Box = styled.div`
 	padding: 50px 40px 40px 10px;
 	background: black;
 	position: relative;
 	bottom: 0;
-	width: 100%;
+	width: auto;
+	z-indext: 1;
 
 	@media (max-width: 1000px) {
 		padding: 70px 30px;

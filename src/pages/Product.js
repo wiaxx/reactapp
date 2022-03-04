@@ -32,6 +32,7 @@ const Product = ({ addCartItem }) => {
 			<p>{product.description}</p>
 			<h5>Stock: {product.storage} </h5>
 			<p>Pris: {product.price} </p>
+			
 		</div>
 	);
 };
