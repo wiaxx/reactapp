@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 
 const ProductCard = ({ product, addCartItem }) => {
     const [qty, setQty] = useState(1);
+    
 
     const addItem = () => {
         const quantityOfItem = {

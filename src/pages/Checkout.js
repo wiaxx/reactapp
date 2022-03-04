@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CheckoutModal from "../components/CheckoutModal";
 
-const Checkout = ({ cartItems, resetCart, removeItem  }) => {
+const Checkout = ({ cartItems, resetCart, removeItem }) => {
 	let sum = 0;
 	const [showModal, setShowModal] = useState(false);
 	const openModal = () => {
 		setShowModal((prev) => !prev);
 	};
-
-	
 
 	return (
 		<div>
@@ -92,7 +90,11 @@ const Checkout = ({ cartItems, resetCart, removeItem  }) => {
 			</div>
 			<button onClick={openModal}>Place Order</button>
 
-			<CheckoutModal showModal={showModal} setShowModal={setShowModal} />
+			<CheckoutModal
+				resetCart={resetCart}
+				showModal={showModal}
+				setShowModal={setShowModal}
+			/>
 		</div>
 	);
 };

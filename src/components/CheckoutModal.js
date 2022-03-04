@@ -24,7 +24,7 @@ const CheckoutModal = ({ showModal, setShowModal, resetCart }) => {
 
 						<CheckoutModalFooter>
 							<Link to={`/`}>
-								<button resetCart={resetCart}> Close</button>
+								<button onClick={resetCart}> Close</button>
 							</Link>
 						</CheckoutModalFooter>
 					</CheckoutModalContent>
