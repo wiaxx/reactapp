@@ -17,7 +17,8 @@ const CheckoutModal = ({ showModal, setShowModal }) => {
 						<CheckoutModalBody>
 							<p>Thank you for your order</p>
 
-							<h3>Your ordernumber is:</h3>
+							<h3>Your ordernumber is:{Math.floor(Math.random() * 9999)}</h3>
+						
 
 							<p>Closing this window will redirect you to the homepage</p>
 						</CheckoutModalBody>
