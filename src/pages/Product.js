@@ -37,36 +37,115 @@ const Product = ({ addCartItem }) => {
 	}, []);
 
 	return (
-		<div>
-			<h1>{product.title} </h1>
-			<img src={product.url} alt={product.title} width="200" />
-			<p>{product.description}</p>
-			<h5>Stock: {product.storage} </h5>
-			<p>Pris: {product.price} </p>
-			<QuantityDiv>
-				<ChangeQty
-					type="number"
-					placeholder="1"
-					value={qty}
-					onChange={(e) => setQty(e.target.value)}
-					className="addQty"
+		<ProductPage>
+			<div class="product-wrap">
+				<ProductHeading>
+					{product.title}
+				</ProductHeading>
+				<ProductImage
+					src={product.url}
+					alt={product.title}
+					width="500"
+					height="200"
 				/>
-				<AddButton onClick={addItem}>Add to cart</AddButton>
-			</QuantityDiv>
-		</div>
+				<ProductDescription>
+					{product.description}
+				</ProductDescription>
+				<ProductStock>
+					<h3>Stock: </h3>
+					<p>{product.storage}</p>
+				</ProductStock>
+				<ProductPrice>
+					<h3>Pris: </h3>
+					<p>{product.price}</p>
+				</ProductPrice>
+				<QuantityDiv>
+					<ChangeQty
+						type="number"
+						placeholder="1"
+						value={qty}
+						onChange={(e) => setQty(e.target.value)}
+						className="addQty"
+					/>
+					<AddButton onClick={addItem}>Add to cart</AddButton>
+				</QuantityDiv>
+			</div>
+		</ProductPage>
 	);
 };
+
+const ProductPage = styled.div`
+	background-color: #2d2f43;
+
+	.product-wrap {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 0 auto;
+		padding: 20px;
+		gap: 12px;
+		width: 1140px;
+		max-width: 100%;
+		background-color: #ffffff;
+	}
+`;
+
+const ProductHeading = styled.h2`
+	flex: 1 1 100%;
+`;
+
+const ProductImage = styled.img`
+	object-fit: contain;
+	object-position: left;
+	flex: 0 1 30%;
+`;
+
+const ProductDescription = styled.p`
+	flex: 1 1 50%;
+`;
+
+const ProductPrice = styled.p`
+	margin: 0;
+	margin-left: auto;
+	padding: 20px;
+
+	h3 {
+		margin: 0;
+		display: inline;
+	}
+
+	p {
+		display: inline;
+	}
+`;
+
+const ProductStock = styled.div`
+	flex: 0 1 30%;
+	padding: 20px;
+	background-color: #ededf6;
+	border-radius: 4px;
+
+	h3 {
+		margin: 0;
+		display: inline;
+	}
+
+	p {
+		display: inline;
+	}
+`;
 
 const AddButton = styled.button`
 	border: none;
 	background-color: rgb(47, 49, 49);
 	color: white;
 	font-size: 1.4rem;
+	border: 0.5px solid black;
+
 	&:hover,
 	&:focus {
 		background-color: white;
 		color: black;
-		border: 0.5px solid black;
 	}
 `;
 

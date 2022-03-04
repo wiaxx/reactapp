@@ -6,21 +6,15 @@ import {
 	Column,
 	FooterLink,
 	Heading,
+	FooterHeading,
 } from "../styles/footer.module";
 
 const Footer = () => {
 	return (
 		<Box>
-			<h1
-				style={{
-					color: "green",
-					textAlign: "center",
-					marginTop: "-50px",
-					zIndex: 1,
-				}}
-			>
+			<FooterHeading>
 				Garageförsäljning{" "}
-			</h1>
+			</FooterHeading>
 			<Container>
 				<Row>
 					<Column>

@@ -32,7 +32,7 @@ const Cart = ({ cartItems, resetCart, removeItem, showCart, setShowCart }) => {
 				{cartItems.map((item) => (
 					<ItemCard key={item.id}>
 						<Link to={`/product/${item.id}`}>
-							<img src={item.url} alt={item.title} width="160" />
+							<img src={item.url} alt={item.title} width="160" height="160" />
 						</Link>
 						<h2>{item.title}</h2>
 						<ItemPrice>
@@ -85,6 +85,10 @@ const ItemCard = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+	img {
+		object-fit: contain;
+	}
 `;
 
 const ItemPrice = styled.p`

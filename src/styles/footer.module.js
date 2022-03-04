@@ -44,7 +44,7 @@ export const FooterLink = styled.a`
 	text-decoration: none;
 
 	&:hover {
-		color: green;
+		color: #d3afe5;
 		transition: 200ms ease-in;
 	}
 `;
@@ -54,4 +54,19 @@ export const Heading = styled.p`
 	color: #fff;
 	margin-bottom: 40px;
 	font-weight: bold;
+`;
+
+export const FooterHeading = styled.h1`
+	text-align: center;
+	background: -webkit-linear-gradient(65deg, #00389e, #00abff, #e10e85);
+	background-size: 500%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: backgroundAnimation 10s linear infinite;
+	animation-direction: alternate;
+
+	@keyframes backgroundAnimation {
+		from {background-position: 0% 0%;}
+		to {background-position: 100% 100%;}
+	}
 `;
