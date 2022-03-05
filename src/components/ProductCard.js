@@ -5,41 +5,41 @@ import styles from '../styles/products.module.css';
 import { motion } from 'framer-motion';
 
 const ProductCard = ({ product, addCartItem }) => {
-	const [qty, setQty] = useState(1);
+    const [qty, setQty] = useState(1);
 
-	const addItem = () => {
-		const quantityOfItem = {
-			...product,
-			qty: Number(qty)
-		}
-		addCartItem(quantityOfItem)
-	}
+    const addItem = () => {
+        const quantityOfItem = {
+            ...product,
+            qty: Number(qty)
+        }
+        addCartItem(quantityOfItem)
+    }
 
-	return (
-		<ItemCard
-			as={motion.div}
-			whileHover={{
-				scale: 1.01,
-			}}
-		>
-			<Link to={`/product/${product.id}`} className={styles.productLink}>
-				<img src={product.url} alt={product.title} className={styles.productImg} />
-			</Link>
-			<TextDiv>
-				<Text className='itemTitle'>{product.title}</Text>
-				<Text className='itemPrice'>{product.price} SEK</Text>
-			</TextDiv>
-			<QuantityDiv>
-				<ChangeQty
-					type='number'
-					placeholder='1'
-					value={qty}
-					onChange={(e) => setQty(e.target.value)}
-					className='addQty'
-				/>
-				<AddButton onClick={addItem}>Add to cart</AddButton>
-			</QuantityDiv>
-		</ItemCard>)
+    return (
+        <ItemCard
+            as={motion.div}
+            whileHover={{
+                scale: 1.01,
+            }}
+        >
+            <Link to={`/product/${product.id}`} className={styles.productLink}>
+                <img src={product.url} alt={product.title} className={styles.productImg} />
+            </Link>
+            <TextDiv>
+                <Text className='itemTitle'>{product.title}</Text>
+                <Text className='itemPrice'>{product.price} SEK</Text>
+            </TextDiv>
+            <QuantityDiv>
+                <ChangeQty
+                    type='number'
+                    placeholder='1'
+                    value={qty}
+                    onChange={(e) => setQty(e.target.value)}
+                    className='addQty'
+                />
+                <AddButton onClick={addItem}>Add to cart</AddButton>
+            </QuantityDiv>
+        </ItemCard>)
 }
 
 const ItemCard = styled.div`

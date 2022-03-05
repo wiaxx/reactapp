@@ -11,7 +11,7 @@ const Header = ({ cartItems, removeItem, resetCart }) => {
 
 	return (
 		<Navbar>
-			<div class="nav-wrap">
+			<div className="nav-wrap">
 			<NavLink to='/'>Home</NavLink>
 			<ProductsLink to='/products'>Products</ProductsLink>
 			<CartBtn
