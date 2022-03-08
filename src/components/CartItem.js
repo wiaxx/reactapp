@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const CartItem = ({ item, removeItem }) => {
     return (
-        <ItemCard key={item.id}>
+        <ItemCard>
             <Link to={`/product/${item.id}`}>
                 <img src={item.url} alt={item.title} width="160" height="160" />
             </Link>
