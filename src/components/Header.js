@@ -12,16 +12,16 @@ const Header = ({ cartItems, removeItem, resetCart }) => {
 	return (
 		<Navbar>
 			<div className="nav-wrap">
-			<NavLink to='/'>Home</NavLink>
-			<ProductsLink to='/products'>Products</ProductsLink>
-			<CartBtn
-				as={motion.button}
-				whileHover={{
-					scale: 1.2,
-				}}
-				onClick={() => setShowCart(!showCart)}>
-				<FiShoppingBag className={styles.cartIcon} />{cartItems.length}</CartBtn>
-			<Cart setShowCart={setShowCart} showCart={showCart} cartItems={cartItems} removeItem={removeItem} resetCart={resetCart} />
+				<NavLink to='/'>Home</NavLink>
+				<ProductsLink to='/products'>Products</ProductsLink>
+				<CartBtn
+					as={motion.button}
+					whileHover={{
+						scale: 1.2,
+					}}
+					onClick={() => setShowCart(!showCart)}>
+					<FiShoppingBag className={styles.cartIcon} />{cartItems.length}</CartBtn>
+				<Cart setShowCart={setShowCart} showCart={showCart} cartItems={cartItems} removeItem={removeItem} resetCart={resetCart} />
 			</div>
 		</Navbar>
 	)

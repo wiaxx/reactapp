@@ -2,28 +2,6 @@ import React, { useState, useEffect } from 'react';
 import ProductCard from '../components/ProductCard';
 import styled from 'styled-components';
 
-const MainContainer = styled.main`
-	width: 100vw;
-	min-height: 70vh;
-	background-color: #2d2f43;
-	overflow: scroll;
-	padding: 10px;
-`;
-
-const ProductWrap = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	margin: 0 auto;
-	width: 1140px;
-	max-width: 100%;
-	gap: 3%;
-
-	@media (max-width: 992px) {
-		justify-content: space-between;
-		gap: 0;
-	}
-`;
-
 const Products = ({ addCartItem }) => {
 	const [products, setProducts] = useState([]);
 
@@ -54,5 +32,27 @@ const Products = ({ addCartItem }) => {
 		</MainContainer>
 	)
 }
+
+const MainContainer = styled.main`
+	width: 100vw;
+	min-height: 70vh;
+	background-color: #2d2f43;
+	overflow: scroll;
+	padding: 10px;
+`;
+
+const ProductWrap = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+	width: 1140px;
+	max-width: 100%;
+	gap: 3%;
+
+	@media (max-width: 992px) {
+		justify-content: space-between;
+		gap: 0;
+	}
+`;
 
 export default Products;

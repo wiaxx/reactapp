@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "../styles/products.module.css";
 import styled from "styled-components";
-import { FiTrash2 } from "react-icons/fi";
 import { motion } from "framer-motion";
+import CartItem from './CartItem';
 
 const Cart = ({ cartItems, resetCart, removeItem, showCart, setShowCart }) => {
 	if (!showCart) {
@@ -29,23 +28,15 @@ const Cart = ({ cartItems, resetCart, removeItem, showCart, setShowCart }) => {
 				animate={{ x: 0 }}
 				transition={{ ease: "easeIn", duration: 1.5 }}
 			>
+
 				{cartItems.map((item) => (
-					<ItemCard key={item.id}>
-						<Link to={`/product/${item.id}`}>
-							<img src={item.url} alt={item.title} width="160" height="160" />
-						</Link>
-						<h2>{item.title}</h2>
-						<ItemPrice>
-							{item.qty} x {item.price}:-
-						</ItemPrice>
-						<RemoveBtn onClick={() => removeItem(item.id)}>
-							<FiTrash2 className={styles.removeIcon} />
-						</RemoveBtn>
-					</ItemCard>
+					<CartItem key={item.id} item={item} removeItem={removeItem} />
 				))}
+
 				{cartItems.length > 0 ? (
 					<RemoveAllBtn onClick={resetCart}>Remove all items</RemoveAllBtn>
-				) : null}
+				) : <h1>Cart is empty..</h1>}
+
 				<ModalFooter>
 					<h2>Total price: {sum} kr</h2>
 					<Link to="/checkout">
@@ -79,20 +70,6 @@ const ModalContent = styled.div`
 	background-color: white;
 	border-radius: 10px;
 	padding: 10px;
-`;
-
-const ItemCard = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	img {
-		object-fit: contain;
-	}
-`;
-
-const ItemPrice = styled.p`
-	font-size: 1.2rem;
 `;
 
 const RemoveBtn = styled.button`
