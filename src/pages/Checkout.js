@@ -155,7 +155,7 @@ const Checkout = ({ cartItems, resetCart, removeItem, setCartItems }) => {
 
 const InfoDiv = styled.div`
 	display: flex;
-	justify-content: space around;
+	justify-content: space-around;
 	align-items: stretch;
 `;
 
@@ -172,7 +172,7 @@ const OrderBtn = styled.button`
 `;
 
 const InputContainer = styled.div`
-	align-self: center;
+	display: flex;
 `;
 const TotalSum = styled.p`
 	font-size: 2rem;
@@ -180,13 +180,12 @@ const TotalSum = styled.p`
 
 const EmptyCartDiv = styled.div`
 	display: flex;
-	justify-content: center;
 `;
 
 const TotalContainer = styled.div`
 	min-height: 100vh;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-around;
 	padding-left: 50px;
 	padding-right: 50px;
 `;
