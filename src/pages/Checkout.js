@@ -16,10 +16,21 @@ const Checkout = ({ cartItems, resetCart, removeItem, setCartItems }) => {
 		setShowModal((prev) => !prev);
 	};
 
-	const addOne = () => {
-		
+	const modifyQty = (id, qty) => {
+		setCartItems((prevItems) =>
+			prevItems
+				.map((item) =>
+					item.id === id
+						? {
+								...item,
+								qty: item.qty + qty,
+						  }
+						: item
+				)
+				.filter((item) => item.qty > 0)
+		);
 	};
-	const subtractOne = (cartItems) => {};
+	
 
 	return (
 		<TotalContainer>
@@ -78,27 +89,24 @@ const Checkout = ({ cartItems, resetCart, removeItem, setCartItems }) => {
 							<Link to={`/product/${item.id}`}>
 								<img src={item.url} alt={item.title} width="160" height="160" />
 							</Link>
+							<button
+								type="button"
+								onClick={() => modifyQty(item.id, -1)}
+								className="subtractButton"
+							>
+								-
+							</button>
 							<h2>{item.title}</h2>
 							<button
 								type="button"
-								onClick={() => addOne(item.id)}
-								className="addSubtract"
+								onClick={() => modifyQty(item.id, 1)}
+								className="addButton"
 							>
 								+
 							</button>
 							<ItemPrice>
 								{item.qty} x {item.price}:-
 							</ItemPrice>
-							<button
-								type="button"
-								onClick={() => subtractOne(item.id)}
-								className="addSubtract"
-							>
-								+
-							</button>
-							<button type="button" className="addSubtract">
-								-
-							</button>
 							<RemoveBtn onClick={() => removeItem(item.id)}>
 								<FiTrash2 className={styles.removeIcon} />
 							</RemoveBtn>

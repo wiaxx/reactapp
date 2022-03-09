@@ -55,6 +55,7 @@ function App() {
 							cartItems={cartItems}
 							removeItem={removeItem}
 							resetCart={resetCart}
+							setCartItems={setCartItems}
 						/>
 					}
 				/>
