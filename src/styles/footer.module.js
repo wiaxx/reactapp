@@ -3,11 +3,11 @@ import styled from "styled-components";
 /*footer styling */
 
 export const Box = styled.div`
-	padding: 50px 40px 40px 10px;
+	padding: 30px 40px 40px 10px;
 	background: black;
 	position: relative;
 	bottom: 0;
-	min-height: 50vh;
+	min-height: 40vh;
 	width: auto;
 	z-indext: 0.1;
 `;
@@ -66,7 +66,11 @@ export const FooterHeading = styled.h1`
 	animation-direction: alternate;
 
 	@keyframes backgroundAnimation {
-		from {background-position: 0% 0%;}
-		to {background-position: 100% 100%;}
+		from {
+			background-position: 0% 0%;
+		}
+		to {
+			background-position: 100% 100%;
+		}
 	}
 `;
