@@ -36,6 +36,7 @@ const Navbar = styled.nav`
 	background-color: #202331;
 	position: sticky;
 	top: 0;
+	z-index: 1;
 
 	.nav-wrap {
 		display: flex;

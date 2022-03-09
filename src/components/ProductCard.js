@@ -31,8 +31,11 @@ const ProductCard = ({ product, addCartItem }) => {
 			</TextDiv>
 			<QuantityDiv>
 				<ChangeQty
+					required
 					type='number'
 					placeholder='1'
+					min='1'
+					max={product.storage}
 					value={qty}
 					onChange={(e) => setQty(e.target.value)}
 					className='addQty'
