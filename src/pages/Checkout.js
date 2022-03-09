@@ -1,18 +1,30 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CheckoutModal from "../components/CheckoutModal";
+import styled from "styled-components";
+import { FiTrash2 } from "react-icons/fi";
+import styles from "../styles/products.module.css";
 
-const Checkout = ({ cartItems, resetCart, removeItem }) => {
+const Checkout = ({ cartItems, resetCart, removeItem, setCartItems }) => {
 	let sum = 0;
+	if (cartItems.length > 0) {
+		cartItems.map((item) => (sum += item.price * item.qty));
+	}
+
 	const [showModal, setShowModal] = useState(false);
 	const openModal = () => {
 		setShowModal((prev) => !prev);
 	};
 
+	const addOne = () => {
+		
+	};
+	const subtractOne = (cartItems) => {};
+
 	return (
-		<div>
+		<TotalContainer>
 			{/*Total container div*/}
-			<div>
+			<div className="inputs">
 				{/* container div for info*/}
 				<div>
 					{/*container div for path styling*/}
@@ -58,24 +70,39 @@ const Checkout = ({ cartItems, resetCart, removeItem }) => {
 					</div>
 				</div>
 			</div>
-			<div>
-				{/*Total container div for items card*/}
-
+			<div className="itemcards">
+				{/*Total container div for item cards*/}
 				{cartItems.length > 0 ? (
 					cartItems.map((item) => (
-						<div className="itemCard" key={item.id}>
+						<ItemCard key={item.id}>
 							<Link to={`/product/${item.id}`}>
-								<img src={item.url} alt={item.title} width="50" />
+								<img src={item.url} alt={item.title} width="160" height="160" />
 							</Link>
-							<h2 className="itemTitle">{item.title}</h2>
-							<p className="itemPrice">
-								{item.qty} x {item.price}:-
-							</p>
-							<button className="removeBtn" onClick={() => removeItem(item.id)}>
-								Remove
+							<h2>{item.title}</h2>
+							<button
+								type="button"
+								onClick={() => addOne(item.id)}
+								className="addSubtract"
+							>
+								+
 							</button>
-							{(sum += item.price * item.qty)}
-						</div>
+							<ItemPrice>
+								{item.qty} x {item.price}:-
+							</ItemPrice>
+							<button
+								type="button"
+								onClick={() => subtractOne(item.id)}
+								className="addSubtract"
+							>
+								+
+							</button>
+							<button type="button" className="addSubtract">
+								-
+							</button>
+							<RemoveBtn onClick={() => removeItem(item.id)}>
+								<FiTrash2 className={styles.removeIcon} />
+							</RemoveBtn>
+						</ItemCard>
 					))
 				) : (
 					<>
@@ -85,8 +112,8 @@ const Checkout = ({ cartItems, resetCart, removeItem }) => {
 						</Link>
 					</>
 				)}
-				<p>Total sum: {sum}</p>
-				<button onClick={resetCart}>Empty shopping bag</button>
+				<TotalSum>Total sum: {sum}</TotalSum>
+				<RemoveAllBtn onClick={resetCart}>Remove all items</RemoveAllBtn>{" "}
 			</div>
 			<button onClick={openModal}>Place Order</button>
 
@@ -95,8 +122,52 @@ const Checkout = ({ cartItems, resetCart, removeItem }) => {
 				showModal={showModal}
 				setShowModal={setShowModal}
 			/>
-		</div>
+		</TotalContainer>
 	);
 };
+
+const TotalSum = styled.p`
+	font-size: 2rem;
+`;
+
+const TotalContainer = styled.div`
+	width: 100vw;
+	min-height: 75vh;
+	display: flex;
+	flex-wrap: wrap;
+	background-color: #2d2f43;
+`;
+
+const ItemCard = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	img {
+		object-fit: contain;
+	}
+`;
+
+const ItemPrice = styled.p`
+	font-size: 1.2rem;
+`;
+
+const RemoveBtn = styled.button`
+	background-color: white;
+	border: none;
+`;
+
+const RemoveAllBtn = styled(RemoveBtn)`
+	font-size: 1.3rem;
+	background-color: red;
+	margin-top: 5px;
+	border: 0.5px solid lightgrey;
+	border-radius: 5px;
+	padding: 3px;
+	&:hover {
+		background-color: grey;
+		color: white;
+	}
+`;
 
 export default Checkout;
