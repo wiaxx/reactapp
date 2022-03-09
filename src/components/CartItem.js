@@ -14,7 +14,7 @@ const CartItem = ({ item, removeItem }) => {
             <ItemPrice>
                 {item.qty} x {item.price}:-
             </ItemPrice>
-            <RemoveBtn onClick={() => removeItem(item.id)}>
+            <RemoveBtn onClick={(e) => removeItem(item.id)}>
                 <FiTrash2 className={styles.removeIcon} />
             </RemoveBtn>
         </ItemCard>

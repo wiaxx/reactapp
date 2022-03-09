@@ -14,13 +14,20 @@ const Cart = ({ cartItems, resetCart, removeItem, showCart, setShowCart }) => {
 		cartItems.map((item) => (sum += item.price * item.qty));
 	}
 
+	const hideCart = (e) => {
+		if (e.target.id === 'modal') {
+			setShowCart(false)
+		}
+	}
+
 	return (
 		<ModalDiv
 			as={motion.div}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1 }}
 			transition={{ duration: 0.6 }}
-			onClick={() => setShowCart(false)}
+			id='modal'
+			onClick={(e) => hideCart(e)}
 		>
 			<ModalContent
 				as={motion.div}
@@ -54,7 +61,6 @@ const ModalDiv = styled.div`
 	top: 0;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.2);
 	z-index: 100;
 	overflow: scroll;
 `;
