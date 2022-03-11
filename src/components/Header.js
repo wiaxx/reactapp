@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FiShoppingBag } from 'react-icons/fi';
-import styled from 'styled-components';
-import styles from '../styles/header.module.css';
-import Cart from './Cart';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { FiShoppingBag } from "react-icons/fi";
+import styled from "styled-components";
+import styles from "../styles/header.module.css";
+import Cart from "./Cart";
 import { motion } from "framer-motion";
 
 const Header = ({ cartItems, removeItem, resetCart }) => {
-	const [showCart, setShowCart] = useState(false)
+	const [showCart, setShowCart] = useState(false);
 
 	return (
 		<Navbar>
@@ -20,16 +20,25 @@ const Header = ({ cartItems, removeItem, resetCart }) => {
 					whileHover={{
 						scale: 1.2,
 					}}
-					onClick={() => setShowCart(!showCart)}>
-					<FiShoppingBag className={styles.cartIcon} />{cartItems.length}</CartBtn>
-				<Cart setShowCart={setShowCart} showCart={showCart} cartItems={cartItems} removeItem={removeItem} resetCart={resetCart} />
+					onClick={() => setShowCart(!showCart)}
+				>
+					<FiShoppingBag className={styles.cartIcon} />
+					{cartItems.length}
+				</CartBtn>
+				<Cart
+					setShowCart={setShowCart}
+					showCart={showCart}
+					cartItems={cartItems}
+					removeItem={removeItem}
+					resetCart={resetCart}
+				/>
 			</div>
 		</Navbar>
-	)
-}
+	);
+};
 
 const Navbar = styled.nav`
-	width: 100vw;
+	width: auto;
 	height: 100px;
 	border-bottom: 1px solid #888d98;
 	padding-left: 20px;
@@ -60,7 +69,7 @@ const NavLink = styled(Link)`
 	position: relative;
 
 	::after {
-		content: '';
+		content: "";
 		border-bottom: 1px solid white;
 		display: block;
 		transform: scaleX(0);

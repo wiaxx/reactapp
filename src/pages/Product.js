@@ -38,19 +38,15 @@ const Product = ({ addCartItem }) => {
 
 	return (
 		<ProductPage>
-			<div class="product-wrap">
-				<ProductHeading>
-					{product.title}
-				</ProductHeading>
+			<div className="product-wrap">
+				<ProductHeading>{product.title}</ProductHeading>
 				<ProductImage
 					src={product.url}
 					alt={product.title}
 					width="500"
 					height="200"
 				/>
-				<ProductDescription>
-					{product.description}
-				</ProductDescription>
+				<ProductDescription>{product.description}</ProductDescription>
 				<ProductStock>
 					<h3>Stock: </h3>
 					<p>{product.storage}</p>
@@ -90,7 +86,7 @@ const ProductPage = styled.div`
 	}
 `;
 
-const ProductHeading = styled.h2`
+const ProductHeading = styled.h1`
 	flex: 1 1 100%;
 `;
 

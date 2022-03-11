@@ -14,6 +14,7 @@ function App() {
 
 	const addCartItem = (cartItem) => {
 		const itemExist = cartItems.filter((item) => item.id === cartItem.id);
+		console.log(addCartItem);
 
 		itemExist.length > 0
 			? cartItems.map((item) =>
@@ -55,6 +56,7 @@ function App() {
 							cartItems={cartItems}
 							removeItem={removeItem}
 							resetCart={resetCart}
+							setCartItems={setCartItems}
 						/>
 					}
 				/>
