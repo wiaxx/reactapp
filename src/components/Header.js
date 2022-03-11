@@ -12,8 +12,9 @@ const Header = ({ cartItems, removeItem, resetCart }) => {
 	return (
 		<Navbar>
 			<div className="nav-wrap">
-				<NavLink to='/'>Home</NavLink>
-				<ProductsLink to='/products'>Products</ProductsLink>
+			<NavLink to='/'>Home</NavLink>
+			<NavLink to='/admin'>Admin</NavLink>
+			<ProductsLink to='/products'>Products</ProductsLink>
 				<CartBtn
 					as={motion.button}
 					whileHover={{

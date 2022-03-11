@@ -22,4 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-product-api/
+product-api/node_modules/
+product-api/package-lock.json
+
+

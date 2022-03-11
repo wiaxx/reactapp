@@ -7,6 +7,7 @@ import Product from "./pages/Product";
 import Home from "./pages/Home";
 import Checkout from "./pages/Checkout";
 import Footer from "./components/Footer";
+import Admin from "./pages/Admin";
 
 function App() {
 	const [cartItems, setCartItems] = useState([]);
@@ -61,6 +62,7 @@ function App() {
 					path="/products/:id"
 					element={<Product addCartItem={addCartItem} />}
 				/>
+				<Route path='/admin' element={<Admin />} />
 			</Routes>
 			<Footer />
 		</>
