@@ -14,8 +14,7 @@ app.use('/products', productRouter);
 // Connect to DB
 // NOTE! Connect to your own DB
 mongoose.connect(
-    // 'mongodb+srv://blog_user:123qwe123@cluster0.wffly.mongodb.net/Cluster0?retryWrites=true&w=majority',
-    'mongodb+srv://wiaxx:XZ9co3aYXY3TcqAI@cluster0.cd27p.mongodb.net/Cluster0?retryWrites=true&w=majority',
+    'database name/url',
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => {
         console.log('DB connected');
